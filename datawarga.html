@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Data Warga</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+
+<header class="bg-white shadow-md">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+    <div class="flex items-center space-x-3">
+      <img src="assets/logo1.png" alt="Logo" class="h-10 w-10 rounded-full" />
+      <h1 class="text-xl font-semibold text-gray-800">Data Rukun Warga Curahgrinting</h1>
+    </div>
+   <!---Navigasi-->
+    <nav class="hidden md:flex space-x-6 text-gray-600 font-medium">
+     <a class="hover:text-blue-600 transition" href="index.html">
+      Beranda
+     </a>
+     <a class="hover:text-blue-600 transition" href="datawarga.html">
+      Data Warga
+     </a>
+     <a class="hover:text-blue-600 transition" href="kontak.html">
+      Kontak
+     </a>
+     <a aria-current="page" class="text-blue-600 font-semibold" href="login.html">
+      Logout
+     </a>
+    </nav>
+    <!---Navigasi-->
+  </div>
+</header>
+
+<main class="flex-grow max-w-7xl mx-auto px-4 py-8">
+  <h2 class="text-3xl font-semibold text-gray-900 mb-6">Data Warga Curahgrinting</h2>
+
+  <!-- Dropdown RW & RT -->
+  <div class="flex items-center gap-4 mb-4">
+    <div>
+      <label for="rw-select" class="block text-sm font-medium text-gray-700">Pilih RW:</label>
+      <select id="rw-select" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+        <option value="RW 1">RW 1</option>
+        <option value="RW 2">RW 2</option>
+        <option value="RW 3">RW 3</option>
+        <option value="RW 4">RW 4</option>
+      </select>
+    </div>
+    <div>
+      <label for="rt-select" class="block text-sm font-medium text-gray-700">Pilih RT:</label>
+      <select id="rt-select" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+        <option value="RT 1">RT 1</option>
+        <option value="RT 2">RT 2</option>
+        <option value="RT 3">RT 3</option>
+        <option value="RT 4">RT 4</option>
+        <option value="RT 5">RT 5</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Tabel Data -->
+  <div id="rw-content" class="bg-white rounded-lg shadow p-6">
+    <h3 class="text-xl font-semibold text-gray-900 mb-4">
+      Data Warga untuk <span id="status-selection">RW 1 - RT 1</span>
+    </h3>
+    <table class="min-w-full divide-y divide-gray-200">
+      <thead class="bg-gray-50">
+        <tr>
+          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">No</th>
+          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Nama</th>
+          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Umur</th>
+          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Jenis Kelamin</th>
+          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Alamat</th>
+        </tr>
+      </thead>
+      <tbody id="rw-table-body" class="bg-white divide-y divide-gray-200"></tbody>
+    </table>
+  </div>
+</main>
+
+<footer class="bg-white border-t border-gray-200 py-6 text-center text-sm text-gray-600">
+  © 2025 Curahgrinting. Semua hak cipta dilindungi.
+</footer>
+
+<script>
+  // Dummy data RW -> RT -> warga
+  const data = {};
+  [1, 2, 3, 4].forEach(rw => {
+    data[`RW ${rw}`] = {};
+    [1, 2, 3, 4, 5].forEach(rt => {
+      data[`RW ${rw}`][`RT ${rt}`] = Array.from({ length: 4 }, (_, i) => ({
+        no: i + 1,
+        nama: `Warga ${rw}-${rt}-${i + 1}`,
+        umur: 20 + i * 5,
+        jenisKelamin: i % 2 === 0 ? 'Laki-laki' : 'Perempuan',
+        alamat: `Jl. RT${rt} RW${rw} No.${i + 1}`
+      }));
+    });
+  });
+
+  // Elements
+  const rwSelect = document.getElementById('rw-select');
+  const rtSelect = document.getElementById('rt-select');
+  const statusSpan = document.getElementById('status-selection');
+  const tbody = document.getElementById('rw-table-body');
+
+  // Update table
+  function renderTable(rw, rt) {
+    statusSpan.textContent = `${rw} - ${rt}`;
+    tbody.innerHTML = '';
+    const warga = data[rw]?.[rt] || [];
+    if (!warga.length) {
+      tbody.innerHTML = `<tr><td colspan="5" class="text-center px-6 py-4 text-gray-500">Data tidak tersedia.</td></tr>`;
+      return;
+    }
+    warga.forEach(w => {
+      tbody.innerHTML += `
+        <tr>
+          <td class="px-6 py-4">${w.no}</td>
+          <td class="px-6 py-4">${w.nama}</td>
+          <td class="px-6 py-4">${w.umur}</td>
+          <td class="px-6 py-4">${w.jenisKelamin}</td>
+          <td class="px-6 py-4">${w.alamat}</td>
+        </tr>`;
+    });
+  }
+
+  // Handle change
+  rwSelect.addEventListener('change', () => {
+    renderTable(rwSelect.value, rtSelect.value);
+  });
+  rtSelect.addEventListener('change', () => {
+    renderTable(rwSelect.value, rtSelect.value);
+  });
+
+  // Default load
+  rwSelect.value = 'RW 1';
+  rtSelect.value = 'RT 1';
+  renderTable('RW 1', 'RT 1');
+
+  // Cek login
+  if (!localStorage.getItem('isLoggedIn')) {
+    window.location.href = 'login.html';
+  }
+
+  function logout() {
+    localStorage.removeItem('isLoggedIn');
+    window.location.href = 'login.html';
+  }
+</script>
+
+</body>
+</html>

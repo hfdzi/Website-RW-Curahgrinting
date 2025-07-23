@@ -1,0 +1,415 @@
+<html class="scroll-smooth" lang="id">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Website RW Curahgrinting
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+
+ </head>
+ <body class="bg-light-50 min-h-screen flex flex-col">
+
+  <header class="bg-white shadow-md">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+    <div class="flex items-center space-x-3">
+<img alt="Logo Curahgrinting, stylized letters CGT in blue and green" class="h-10 w-10 rounded-full" height="40" src="C:/xampp/htdocs/WebsiteRw/assets/logo1.png" width="40"/>
+     <h1 class="text-xl font-semibold text-gray-800">
+      Data Rukun Warga Curahgrinting
+     </h1>
+    </div>
+    
+    <!---Navigasi-->
+    <nav class="hidden md:flex space-x-6 text-gray-600 font-medium items-center">
+     <a class="hover:text-blue-600 transition" href="index.html">
+      Beranda
+     </a>
+    <a class="hover:text-blue-600 transition" href="datawarga.html">
+      Data Warga
+     </a>
+     <a class="hover:text-blue-600 transition" href="kontak.html">
+      Kontak
+     </a>
+     <a href="login.html" onclick="logout()" class="hover:text-blue-600 transition">Logout</a>
+    </nav>
+    <button aria-label="Toggle menu" class="md:hidden text-gray-600 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500" id="mobile-menu-button">
+     <i class="fas fa-bars fa-lg">
+     </i>
+    </button>
+   </div>
+   <nav class="md:hidden bg-white border-t border-gray-200 hidden" id="mobile-menu">
+    <a class="block px-4 py-3 text-gray-700 hover:bg-gray-100" href="index.html">
+     Beranda
+    </a>
+    <a class="hover:text-blue-600 transition" href="datawarga.html">
+      Data Warga
+     </a>
+    <a class="block px-4 py-3 text-gray-700 hover:bg-gray-100" href="kontak.html">
+     Kontak
+    </a>
+    <a href="login.html" onclick="logout()" class="hover:text-blue-600 transition">Logout</a>
+   </nav>
+
+    <!--halaman awal-->
+  </header>
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+   <h2 class="text-3xl font-semibold text-gray-900 mb-8">
+    Dashboard Total Warga Curahgrinting
+   </h2>
+   <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+    <div class="bg-white rounded-lg shadow p-6 flex items-center space-x-4">
+     <div class="p-4 bg-blue-100 text-blue-600 rounded-full">
+      <i class="fas fa-users fa-2x">
+      </i>
+     </div>
+     <div>
+      <p class="text-sm font-medium text-gray-500">
+       Total Warga
+      </p>
+      <p class="text-2xl font-bold text-gray-900">
+       5,233
+      </p>
+     </div>
+    </div>
+    <div class="bg-white rounded-lg shadow p-6 flex items-center space-x-4">
+     <div class="p-4 bg-green-100 text-green-600 rounded-full">
+      <i class="fas fa-male fa-2x">
+      </i>
+     </div>
+     <div>
+      <p class="text-sm font-medium text-gray-500">
+       Laki-laki
+      </p>
+      <p class="text-2xl font-bold text-gray-900">
+       2,587
+      </p>
+     </div>
+    </div>
+    <div class="bg-white rounded-lg shadow p-6 flex items-center space-x-4">
+     <div class="p-4 bg-pink-100 text-pink-600 rounded-full">
+      <i class="fas fa-female fa-2x">
+      </i>
+     </div>
+     <div>
+      <p class="text-sm font-medium text-gray-500">
+       Perempuan
+      </p>
+      <p class="text-2xl font-bold text-gray-900">
+       2,646
+      </p>
+     </div>
+    </div>
+   </section>
+   <section class="bg-white rounded-lg shadow p-6 mb-10">
+    <h3 class="text-xl font-semibold text-gray-900 mb-4">
+     Statistik Umur Warga
+    </h3>
+    <div class="overflow-x-auto">
+     <table class="min-w-full divide-y divide-gray-200">
+      <thead class="bg-gray-50">
+       <tr>
+        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" scope="col">
+         Kelompok Umur
+        </th>
+        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" scope="col">
+         Jumlah
+        </th>
+        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" scope="col">
+         Persentase
+        </th>
+       </tr>
+      </thead>
+      <tbody class="bg-white divide-y divide-gray-200">
+       <tr>
+        <td class="px-6 py-4 whitespace-nowrap text-gray-900">
+         0-12 Tahun
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap text-gray-900">
+         520
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap text-gray-900">
+         15%
+        </td>
+       </tr>
+       <tr>
+        <td class="px-6 py-4 whitespace-nowrap text-gray-900">
+         13-25 Tahun
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap text-gray-900">
+         850
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap text-gray-900">
+         25%
+        </td>
+       </tr>
+       <tr>
+        <td class="px-6 py-4 whitespace-nowrap text-gray-900">
+         26-45 Tahun
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap text-gray-900">
+         1,200
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap text-gray-900">
+         35%
+        </td>
+       </tr>
+       <tr>
+        <td class="px-6 py-4 whitespace-nowrap text-gray-900">
+         46-65 Tahun
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap text-gray-900">
+         600
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap text-gray-900">
+         17%
+        </td>
+       </tr>
+       <tr>
+        <td class="px-6 py-4 whitespace-nowrap text-gray-900">
+         &gt; 65 Tahun
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap text-gray-900">
+         282
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap text-gray-900">
+         8%
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+   </section>
+   <section class="bg-white rounded-lg shadow p-6">
+    <h3 class="text-xl font-semibold text-gray-900 mb-4">
+     Berita Terbaru Curahgrinting
+    </h3>
+    <div class="space-y-6">
+     <article class="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-6">
+      <img alt="Foto warga Curahgrinting sedang berkumpul di balai desa dengan latar belakang bendera merah putih" class="w-full sm:w-32 rounded-lg object-cover" height="80" src="https://storage.googleapis.com/a1aa/image/62d3c650-1293-445b-0591-51db022b8cdc.jpg" width="120"/>
+      <div>
+       <h4 class="text-lg font-semibold text-blue-700 hover:underline cursor-pointer">
+        Pembangunan Balai Desa Baru Dimulai
+       </h4>
+       <p class="text-gray-600 text-sm mt-1">
+        Pembangunan balai desa Curahgrinting resmi dimulai bulan ini dengan target selesai dalam 6 bulan.
+       </p>
+       <time class="text-gray-400 text-xs mt-1 block">
+        12 Juni 2024
+       </time>
+      </div>
+     </article>
+     <article class="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-6">
+      <img alt="Foto anak-anak Curahgringting sedang bermain di taman desa dengan latar belakang pepohonan hijau" class="w-full sm:w-32 rounded-lg object-cover" height="80" src="https://storage.googleapis.com/a1aa/image/ecf5d060-970f-449d-d757-14f02aad6d2b.jpg" width="120"/>
+      <div>
+       <h4 class="text-lg font-semibold text-blue-700 hover:underline cursor-pointer">
+        Festival Anak-anak Meriahkan Desa
+       </h4>
+       <p class="text-gray-600 text-sm mt-1">
+        Festival tahunan anak-anak Curahgrinting sukses digelar dengan berbagai lomba dan hiburan.
+       </p>
+       <time class="text-gray-400 text-xs mt-1 block">
+        5 Juni 2024
+       </time>
+      </div>
+     </article>
+     <article class="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-6">
+      <img alt="Foto petani Curahgrinting sedang memanen padi di sawah dengan latar belakang pegunungan" class="w-full sm:w-32 rounded-lg object-cover" height="80" src="https://storage.googleapis.com/a1aa/image/af753211-3efa-4e1e-fd96-09c579dcd4be.jpg" width="120"/>
+      <div>
+       <h4 class="text-lg font-semibold text-blue-700 hover:underline cursor-pointer">
+        Panen Raya Padi Tahun Ini Melimpah
+       </h4>
+       <p class="text-gray-600 text-sm mt-1">
+        Petani Curahgrinting melaporkan hasil panen padi yang melimpah berkat musim yang baik.
+       </p>
+       <time class="text-gray-400 text-xs mt-1 block">
+        1 Juni 2024
+       </time>
+      </div>
+     </article>
+    </div>
+   </section>
+  </main>
+  <!--halaman akhir-->
+
+  <footer class="bg-white border-t border-gray-200 mt-12">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between items-center text-gray-600 text-sm">
+    <p>
+     © 2025 Curahgrinting. Semua hak cipta dilindungi.
+    </p>
+    <div class="flex space-x-4 mt-3 sm:mt-0">
+     <a aria-label="Facebook" class="hover:text-blue-600" href="#">
+      <i class="fab fa-facebook fa-lg">
+      </i>
+     </a>
+     <a aria-label="Twitter" class="hover:text-blue-400" href="#">
+      <i class="fab fa-twitter fa-lg">
+      </i>
+     </a>
+     <a aria-label="Instagram" class="hover:text-pink-600" href="#">
+      <i class="fab fa-instagram fa-lg">
+      </i>
+     </a>
+    </div>
+   </div>
+  </footer>
+
+  <script>
+    
+   // Mobile menu toggle
+    const btn = document.getElementById('mobile-menu-button');
+    const menu = document.getElementById('mobile-menu');
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+
+    // Dropdown toggle for desktop RW menu
+    const rwMenuButton = document.getElementById('rw-menu-button');
+    const rwMenu = document.getElementById('rw-menu');
+    rwMenuButton.addEventListener('click', () => {
+      const expanded = rwMenuButton.getAttribute('aria-expanded') === 'true';
+      rwMenuButton.setAttribute('aria-expanded', !expanded);
+      rwMenu.classList.toggle('hidden');
+    });
+
+    // Close dropdown if clicked outside
+    document.addEventListener('click', (e) => {
+      if (!rwMenuButton.contains(e.target) && !rwMenu.contains(e.target)) {
+        rwMenu.classList.add('hidden');
+        rwMenuButton.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Mobile RW menu toggle
+    const mobileRwMenuButton = document.getElementById('mobile-rw-menu-button');
+    const mobileRwMenu = document.getElementById('mobile-rw-menu');
+    mobileRwMenuButton.addEventListener('click', () => {
+      const expanded = mobileRwMenuButton.getAttribute('aria-expanded') === 'true';
+      mobileRwMenuButton.setAttribute('aria-expanded', !expanded);
+      mobileRwMenu.classList.toggle('hidden');
+    });
+
+    // Data warga per RW (example data)
+    const dataWarga = {
+      "RW 1": [
+        { no: 1, nama: "Joko Widodo", umur: 45, jenisKelamin: "Laki-laki", alamat: "Jl. Kenanga No. 1" },
+        { no: 2, nama: "Sari Dewi", umur: 38, jenisKelamin: "Perempuan", alamat: "Jl. Kenanga No. 3" },
+        { no: 3, nama: "Agus Santoso", umur: 50, jenisKelamin: "Laki-laki", alamat: "Jl. Kenanga No. 5" },
+        { no: 4, nama: "Maya Putri", umur: 29, jenisKelamin: "Perempuan", alamat: "Jl. Kenanga No. 7" }
+      ],
+      "RW 2": [
+        { no: 1, nama: "Bambang Sutrisno", umur: 40, jenisKelamin: "Laki-laki", alamat: "Jl. Melati No. 10" },
+        { no: 2, nama: "Dewi Anggraini", umur: 33, jenisKelamin: "Perempuan", alamat: "Jl. Melati No. 12" },
+        { no: 3, nama: "Rudi Hartono", umur: 47, jenisKelamin: "Laki-laki", alamat: "Jl. Melati No. 14" },
+        { no: 4, nama: "Lina Marlina", umur: 26, jenisKelamin: "Perempuan", alamat: "Jl. Melati No. 16" }
+      ],
+      "RW 3": [
+        { no: 1, nama: "Slamet Riyadi", umur: 52, jenisKelamin: "Laki-laki", alamat: "Jl. Anggrek No. 20" },
+        { no: 2, nama: "Nina Kartika", umur: 30, jenisKelamin: "Perempuan", alamat: "Jl. Anggrek No. 22" },
+        { no: 3, nama: "Eko Prasetyo", umur: 44, jenisKelamin: "Laki-laki", alamat: "Jl. Anggrek No. 24" },
+        { no: 4, nama: "Rina Sari", umur: 35, jenisKelamin: "Perempuan", alamat: "Jl. Anggrek No. 26" }
+      ],
+      "RW 4": [
+        { no: 1, nama: "Ahmad Santoso", umur: 35, jenisKelamin: "Laki-laki", alamat: "Jl. Melati No. 12" },
+        { no: 2, nama: "Siti Aminah", umur: 28, jenisKelamin: "Perempuan", alamat: "Jl. Melati No. 15" },
+        { no: 3, nama: "Budi Hartono", umur: 42, jenisKelamin: "Laki-laki", alamat: "Jl. Melati No. 20" },
+        { no: 4, nama: "Dewi Lestari", umur: 31, jenisKelamin: "Perempuan", alamat: "Jl. Melati No. 25" }
+      ]
+    };
+
+    const rwSelect = document.getElementById('rw-select');
+    const selectedRwSpan = document.getElementById('selected-rw');
+    const rwTableBody = document.getElementById('rw-table-body');
+
+    function renderTable(rw) {
+      selectedRwSpan.textContent = rw;
+      const wargaList = dataWarga[rw] || [];
+      rwTableBody.innerHTML = '';
+      if (wargaList.length === 0) {
+        rwTableBody.innerHTML = '<tr><td colspan="5" class="px-6 py-4 text-center text-gray-500">Data warga tidak tersedia.</td></tr>';
+        return;
+      }
+      wargaList.forEach((warga) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td class="px-6 py-4 whitespace-nowrap text-gray-900">${warga.no}</td>
+          <td class="px-6 py-4 whitespace-nowrap text-gray-900">${warga.nama}</td>
+          <td class="px-6 py-4 whitespace-nowrap text-gray-900">${warga.umur}</td>
+          <td class="px-6 py-4 whitespace-nowrap text-gray-900">${warga.jenisKelamin}</td>
+          <td class="px-6 py-4 whitespace-nowrap text-gray-900">${warga.alamat}</td>
+        `;
+        rwTableBody.appendChild(tr);
+      });
+    }
+
+    rwSelect.addEventListener('change', (e) => {
+      renderTable(e.target.value);
+    });
+
+    // Also handle clicks on dropdown menu items in desktop menu
+    const rwMenuLinks = rwMenu.querySelectorAll('a');
+    rwMenuLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const rw = link.getAttribute('data-rw');
+        rwSelect.value = rw;
+        renderTable(rw);
+        rwMenu.classList.add('hidden');
+        rwMenuButton.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Handle clicks on mobile RW menu items
+    const mobileRwMenuLinks = mobileRwMenu.querySelectorAll('a');
+    mobileRwMenuLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const rw = link.getAttribute('data-rw');
+        rwSelect.value = rw;
+        renderTable(rw);
+        mobileRwMenu.classList.add('hidden');
+        mobileRwMenuButton.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Initialize table with default RW 1
+    renderTable('RW 1');
+
+  // Cek status login
+  if (!localStorage.getItem('isLoggedIn')) {
+    window.location.href = 'login.html';
+  }
+  function logout() {
+    localStorage.removeItem('isLoggedIn');
+    window.location.href = 'login.html';
+  }
+</script>
+
+
+<!-- Modal Login -->
+<div id="loginModal" class="fixed inset-0 z-50 bg-black bg-opacity-50 hidden items-center justify-center">
+  <div class="bg-white rounded-lg w-full max-w-md mx-4 p-6 shadow-lg relative">
+    <button onclick="closeLoginModal()" class="absolute top-2 right-2 text-gray-600 hover:text-red-500 text-xl font-bold">&times;</button>
+    <div class="text-center mb-6">
+      <img src="assets/logo1.png" alt="Logo RW" class="w-20 h-20 mx-auto rounded-full border border-gray-300">
+      <h2 class="text-xl font-semibold mt-4 text-gray-800">RW Curahgrintingku</h2>
+      <p class="text-gray-500">Silakan masuk untuk mengakses data</p>
+    </div>
+    <form action="proses-login.php" method="POST" class="space-y-4">
+      <input type="text" name="username" placeholder="Username" required class="w-full px-4 py-2 border rounded focus:outline-none focus:ring focus:border-blue-500">
+      <input type="email" name="email" placeholder="Email" required class="w-full px-4 py-2 border rounded focus:outline-none focus:ring focus:border-blue-500">
+      <input type="password" name="password" placeholder="Password" required class="w-full px-4 py-2 border rounded focus:outline-none focus:ring focus:border-blue-500">
+      <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Login</button>
+    </form>
+  </div>
+</div>
+
+ </body>
+</html>

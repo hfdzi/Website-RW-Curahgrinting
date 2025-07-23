@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - RW Curahgrinting</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+  .gradient-bg {
+  background-color: #f7f7f7; /* Background terang, soft */
+  color: #1a1a1a; /* Warna teks default menjadi gelap */
+}
+
+.card-glass {
+  background: rgba(255, 255, 255, 0.9); /* Lebih terang dan solid */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #1a1a1a; /* Warna teks dalam kartu */
+}
+
+.input-field {
+  background: #ffffff; /* Input putih */
+  color: #1a1a1a; /* Teks hitam */
+  transition: all 0.3s ease;
+}
+
+.input-field:focus {
+  background: #f0f0f0;
+}
+  </style>
+</head>
+<body class="gradient-bg min-h-screen flex flex-col text-gray-800">
+  <!-- Login Form -->
+  <div id="loginModal" class="fixed inset-0 flex items-center justify-center z-50">
+    <div class="card-glass rounded-xl p-8 max-w-md w-full mx-4 shadow-2xl">
+      <div class="text-center mb-8">
+        <img src="C:/xampp/htdocs/WebsiteRw/assets/logo1.png" alt="Logo RW CurahGrintingku" class="w-24 h-24 mx-auto rounded-full border-2 border-gray-600">
+        <h1 class="text-2xl font-bold mt-4 text-gray-900">RW CurahGrintingku</h1>
+        <p class="text-gray-600">Silakan masuk untuk mengakses data</p>
+
+      </div>
+
+      <form id="loginForm" class="space-y-4">
+        <div>
+          <label for="username" class="block text-sm font-medium text-gray-900 mb-1">Username</label>
+          <input type="text" id="username" class="input-field w-full px-4 py-2 rounded-lg border border-gray-600 focus:border-gray-400 focus:outline-none" placeholder="Masukkan username" required>
+        </div>
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-900 mb-1">Email</label>
+          <input type="email" id="email" class="input-field w-full px-4 py-2 rounded-lg border border-gray-600 focus:border-gray-400 focus:outline-none" placeholder="Masukkan email" required>
+        </div>
+        <div>
+          <label for="password" class="block text-sm font-medium text-gray-900 mb-1">Password</label>
+          <input type="password" id="password" class="input-field w-full px-4 py-2 rounded-lg border border-gray-600 focus:border-gray-400 focus:outline-none" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="w-full bg-gray-800 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300">Masuk</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const username = document.getElementById('username').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      if (username === 'admin' && email === 'kepalaadmincrg@gmail.com' && password === 'admin123') {
+        localStorage.setItem('isLoggedIn', 'true');
+        window.location.href = 'index.html';
+      } else {
+        alert('Username atau password salah.');
+      }
+    });
+  </script>
+</body>
+</html>
